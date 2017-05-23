@@ -5,9 +5,8 @@ typedef struct{
   int length;
   int listsize;
  }list;
- list Initlist()
+ list Initlist(list p)
  {  
-    list p;
     p.elem=(int*)malloc(MAX*sizeof(int));
     if(!p.elem){
       exit(OVERFLOW);
