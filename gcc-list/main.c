@@ -1,5 +1,10 @@
 #include <stdio.h>
 #include "include/mergelist.h"
+typedef struct{
+  int *elem;
+  int length;
+  int listsize;
+ }list;
 int main(void)
 {
 	list L;
