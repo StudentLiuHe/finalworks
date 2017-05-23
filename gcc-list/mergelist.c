@@ -5,7 +5,7 @@ typedef struct{
   int length;
   int listsize;
  }list;
- list Initlist(list p)
+ void  Initlist(list p)
  {  
     p.elem=(int*)malloc(MAX*sizeof(int));
     if(!p.elem){
