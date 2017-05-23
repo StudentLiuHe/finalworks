@@ -26,11 +26,11 @@ typedef struct{
        ++L.length;
        return 1;
   }
-  int Deletelist(list L,int i,int e)
+  int Deletelist(list L,int i)
   {
       if((i<1)||(i>L.length))
           return 0;
-      int *p,*q;
+      int *p,*q,e;
       p=L.elem[i-1];
       e=*p;
       q=L.elem+L.length-1;
