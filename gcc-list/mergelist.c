@@ -1,37 +1,33 @@
 #include "include/mergelist.h"
-#define MAX 10
-typedef struct{
-  int *elem;
-  int length;
-  int listsize;
- }list;
- void  Initlist(list p)
- {  
-    p.elem=(int*)malloc(MAX*sizeof(int));
-    if(!p.elem){
-      exit(OVERFLOW);
+#include <stdio.h>
+#include <stdlib.h>
+#include <malloc.h>
+#include "stddef.h"
+void Initlist()
+ {
+    L.elem=(int*)malloc(10*sizeof(int));
+    if(!L.elem){
+      return ;
       }
-    p.length=0;
-    p.listsize=MAX;
+    L.length=5;
+    L.listsize=10;
  }
- int Insertlist(list L,int i,int e)
- {  
-      if(i<1||i>L.length+1)
-           return 0;
-       int *q = L.elem[i-1];
-       int *p;
-       for(p=L.elem[L.length-1];p>=q;p--)
-            *(p+1)=*p;
+ int Insertlist(int e)
+ {
+      
+       int *q = L.elem;
+        while(*q!=0)
+            q++;
        *q=e;
        ++L.length;
        return 1;
   }
-  int Deletelist(list L,int i)
+  int Deletelist(int i)
   {
       if((i<1)||(i>L.length))
           return 0;
       int *p,*q,e;
-      p=L.elem[i-1];
+      p=L.elem+(i-1);
       e=*p;
       q=L.elem+L.length-1;
       for(++p;p<=q;++p)
@@ -41,7 +37,7 @@ typedef struct{
       --L.length;
       return 1;
  }
- int Locatelist(list L,int e)
+ int Locatelist(int e)
  {
     int i=1;
     int *p;
@@ -52,6 +48,12 @@ typedef struct{
          return i;
      return 0;
   }
-    
- 
-      
+void play()
+{
+	int i;
+	for(i=0;i<L.length;i++)
+	{
+		printf("%d ",*(L.elem+i));
+	}
+}
+	
